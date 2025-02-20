@@ -17,7 +17,7 @@ pipeline {
         stage('Deploy') {
             steps {
 		echo 'Desploying...'
-		sh 'cp -r ./build/* /var/www/html/'    
+		sh 'sudo cp -r ./build/* /var/www/html/'    
 	        }
         }
     }
