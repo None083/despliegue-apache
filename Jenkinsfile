@@ -11,13 +11,22 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
+                sh 'npm test'
             }
         }
         stage('Deploy') {
             steps {
 		echo 'Desploying...'
 		sh 'cp -r ./build/* /var/www/html/'    
-	    }
+	        }
+        }
+    }
+    post {
+        success{
+            echo 'Pipeline completado con éxito'
+        }
+        failure{
+            echo 'Pipeline fallido'
         }
     }
 }
